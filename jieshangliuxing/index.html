@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="街头时尚与复古潮流指南：深度解析当前流行红裙子款式、穿搭技巧及搭配灵感，助你轻松驾驭街头红裙风尚。">
+    <meta name="keywords" content="街上流行红裙子,街头红裙穿搭,复古红裙推荐,时尚潮流">
+    <title>街上流行红裙子-街头红裙穿搭指南与时尚灵感</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-red: #D32F2F;
+            --dark-red: #B71C1C;
+            --bg-color: #FAFAFA;
+            --card-bg: #FFFFFF;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --border-radius: 8px;
+            --container-width: 1200px;
+            --spacing-unit: 1rem;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* 布局容器 */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* 头部导航 */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-red);
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary-red);
+        }
+
+        /* Hero 区域 */
+        .hero {
+            position: relative;
+            height: 600px;
+            background: linear-gradient(135deg, rgba(211, 47, 47, 0.9), rgba(183, 28, 28, 0.8)), 
+                        url('https://picsum.photos/seed/reddress1/1920/1080') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: white;
+            color: var(--primary-red);
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* 专题分类 */
+        .categories {
+            padding: 3rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-main);
+        }
+
+        .section-title span {
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary-red);
+            margin: 0 auto;
+            border-radius: 2px;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .category-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .category-img {
+            height: 180px;
+            background-color: #eee;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .category-info {
+            padding: 1.5rem;
+        }
+
+        .category-info h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .category-info p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* 穿搭技巧 */
+        .style-guide {
+            padding: 4rem 0;
+            background-color: white;
+        }
+
+        .guide-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .guide-image {
+            position: relative;
+        }
+
+        .guide-image img {
+            width: 100%;
+            border-radius: var(--border-radius);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .guide-content h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-main);
+        }
+
+        .guide-content p {
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+        }
+
+        .tips-list li {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+        }
+
+        .tips-list li::before {
+            content: "•";
+            color: var(--primary-red);
+            font-size: 1.5rem;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+
+        /* 版本对比 */
+        .versions {
+            padding: 4rem 0;
+        }
+
+        .version-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            padding: 0.8rem 1.5rem;
+            border: 1px solid #ddd;
+            background: white;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .tab-btn.active, .tab-btn:hover {
+            background-color: var(--primary-red);
+            color: white;
+            border-color: var(--primary-red);
+        }
+
+        .version-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .version-content.active {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .style-card {
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .style-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .style-card-body {
+            padding: 1.5rem;
+        }
+
+        .style-card-body h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .style-card-body p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* 常见问题 */
+        .faq-section {
+            padding: 4rem 0;
+            background-color: white;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #eee;
+            padding: 1.5rem 0;
+        }
+
+        .faq-question {
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            margin-top: 1rem;
+            color: var(--text-secondary);
+            display: none;
+            padding-left: 1rem;
+            border-left: 3px solid var(--primary-red);
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question {
+            color: var(--primary-red);
+        }
+
+        /* 页脚 */
+        footer {
+            background-color: #1a1a1a;
+            color: #ccc;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .footer-links {
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links a {
+            margin: 0 1rem;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .copyright {
+            font-size: 0.85rem;
+            color: #777;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; /* 简化移动端导航 */
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .guide-layout {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .guide-image {
+                order: -1;
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <div class="logo">红裙风尚</div>
+            <nav class="nav-links">
+                <a href="#" class="active">首页</a>
+                <a href="#styles">流行款式</a>
+                <a href="#guide">穿搭指南</a>
+                <a href="#versions">风格演变</a>
+                <a href="#faq">常见问题</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>街上流行红裙子</h1>
+                <p>从复古风潮到现代街头，探索红色在时尚界的无限可能，打造吸睛又自信的街头造型。</p>
+                <a href="#styles" class="cta-button">探索流行趋势</a>
+            </div>
+        </section>
+
+        <!-- Categories Section -->
+        <section class="container categories" id="styles">
+            <div class="section-title">
+                <h2>热门红裙款式</h2>
+                <span></span>
+            </div>
+            <div class="category-grid">
+                <article class="category-card">
+                    <div class="category-img" style="background-image: url('https://picsum.photos/seed/reddress2/400/300');"></div>
+                    <div class="category-info">
+                        <h3>复古碎花红裙</h3>
+                        <p>法式复古风格，适合春夏约会与度假。</p>
+                    </div>
+                </article>
+                <article class="category-card">
+                    <div class="category-img" style="background-image: url('https://picsum.photos/seed/reddress3/400/300');"></div>
+                    <div class="category-info">
+                        <h3>丝绒红裙晚装</h3>
+                        <p>优雅高贵，适合秋冬派对与正式场合。</p>
+                    </div>
+                </article>
+                <article class="category-card">
+                    <div class="category-img" style="background-image: url('https://picsum.photos/seed/reddress4/400/300');"></div>
+                    <div class="category-info">
+                        <h3>工装风红裙</h3>
+                        <p>个性街头感，搭配马丁靴展现酷飒风格。</p>
+                    </div>
+                </article>
+                <article class="category-card">
+                    <div class="category-img" style="background-image: url('https://picsum.photos/seed/reddress5/400/300');"></div>
+                    <div class="category-info">
+                        <h3>波点红裙</h3>
+                        <p>经典元素重现，减龄又俏皮。</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Style Guide Section -->
+        <section class="style-guide" id="guide">
+            <div class="container">
+                <div class="guide-layout">
+                    <div class="guide-image">
+                        <img src="https://picsum.photos/seed/reddress6/600/700" alt="红裙穿搭示例">
+                    </div>
+                    <div class="guide-content">
+                        <h2>如何穿出“街上流行红裙子”的气场？</h2>
+                        <p>当街上流行红裙子时，它不仅仅是一件衣服，更是一种态度的表达。红色的视觉冲击力强，能有效提升穿着者的自信度。</p>
+                        <ul class="tips-list">
+                            <li><strong>色彩平衡：</strong>由于红色饱和度高，建议搭配中性色（如黑白灰、牛仔蓝）的下装，避免全身过于花哨。</li>
+                            <li><strong>配饰点缀：</strong>简单的金色或银色首饰能提升质感，避免破坏红色的纯粹感。</li>
+                            <li><strong>发型与妆容：</strong>红裙适合烈焰红唇或清新的裸妆，发型选择低马尾或大波浪卷更能凸显高级感。</li>
+                            <li><strong>场合选择：</strong>通勤可选简约剪裁的红裙，约会或派对则可选择带有蕾丝或亮片的款式。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Versions Section -->
+        <section class="versions" id="versions">
+            <div class="container">
+                <div class="section-title">
+                    <h2>风格演变与流行</h2>
+                    <span></span>
+                </div>
+                <div class="version-tabs">
+                    <button class="tab-btn active" onclick="switchTab(event, 'modern')">现代街头</button>
+                    <button class="tab-btn" onclick="switchTab(event, 'retro')">复古怀旧</button>
+                    <button class="tab-btn" onclick="switchTab(event, 'minimal')">极简风</button>
+                </div>
+
+                <div id="modern" class="version-content active">
+                    <div class="style-card">
+                        <img src="https://picsum.photos/seed/redmodern1/400/300" alt="现代街头红裙">
+                        <div class="style-card-body">
+                            <h4>机车风红裙</h4>
+                            <p>皮衣搭配红裙，硬朗与柔美的碰撞，适合个性女孩。</p>
+                        </div>
+                    </div>
+                    <div class="style-card">
+                        <img src="https://picsum.photos/seed/redmodern2/400/300" alt="现代街头红裙">
+                        <div class="style-card-body">
+                            <h4>运动红裙</h4>
+                            <p>卫衣与百褶裙的组合，舒适中带着青春活力。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="retro" class="version-content">
+                    <div class="style-card">
+                        <img src="https://picsum.photos/seed/redretro1/400/300" alt="复古红裙">
+                        <div class="style-card-body">
+                            <h4>港风红裙</h4>
+                            <p>大波浪卷发与高开叉红裙，重现90年代港星风采。</p>
+                        </div>
+                    </div>
+                    <div class="style-card">
+                        <img src="https://picsum.photos/seed/redretro2/400/300" alt="复古红裙">
+                        <div class="style-card-body">
+                            <h4>法式复古</h4>
+                            <p>方领设计，搭配草编包，充满浪漫气息。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="minimal" class="version-content">
+                    <div class="style-card">
+                        <img src="https://picsum.photos/seed/redminimal1/400/300" alt="极简红裙">
+                        <div class="style-card-body">
+                            <h4>剪裁红裙</h4>
+                            <p>丝绸材质，无多余装饰，展现极致的优雅与干练。</p>
+                        </div>
+                    </div>
+                    <div class="style-card">
+                        <img src="https://picsum.photos/seed/redminimal2/400/300" alt="极简红裙">
+                        <div class="style-card-body">
+                            <h4>系带红裙</h4>
+                            <p>简单的结构设计，强调腰线，适合职场穿搭。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section" id="faq">
+            <div class="container faq-container">
+                <div class="section-title">
+                    <h2>常见问题</h2>
+                    <span></span>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">黄皮肤穿红裙子显黑吗？</div>
+                    <div class="faq-answer">
+                        <p>这取决于红色的深浅和色调。正红色（Crimson）对黄皮肤比较友好，能衬托出气色；而暗红或偏紫的红可能显得肤色暗沉。建议选择带有橘调的红色，会显得更有活力。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">街上流行红裙子适合什么季节？</div>
+                    <div class="faq-answer">
+                        <p>红裙四季皆宜。春夏可选择轻薄面料（如雪纺、棉麻）搭配凉鞋；秋冬则适合丝绒、羊毛等保暖材质，搭配长靴或大衣。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">如何搭配鞋子？</div>
+                    <div class="faq-answer">
+                        <p>红裙搭配黑色或裸色的高跟鞋最稳妥，能延伸腿部线条。想要更个性，可以尝试搭配白色运动鞋或红色玛丽珍鞋。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="#">关于我们</a>
+                <a href="#">时尚资讯</a>
+                <a href="#">品牌合作</a>
+                <a href="#">隐私政策</a>
+            </div>
+            <p class="copyright">&copy; 2023 红裙风尚. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Tab Switching Logic
+        function switchTab(event, tabId) {
+            // Remove active class from all buttons and contents
+            const buttons = document.querySelectorAll('.tab-btn');
+            const contents = document.querySelectorAll('.version-content');
+            
+            buttons.forEach(btn => btn.classList.remove('active'));
+            contents.forEach(content => content.classList.remove('active'));
+            
+            // Add active class to clicked button and target content
+            event.currentTarget.classList.add('active');
+            document.getElementById(tabId).classList.add('active');
+        }
+
+        // FAQ Accordion Logic
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', () => {
+                const parent = item.parentElement;
+                parent.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>
