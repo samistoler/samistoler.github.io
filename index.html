@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="金地国际城二手房详细信息查询平台。提供小区房价走势、户型图、周边配套、在售房源列表及买卖交易指南。">
+    <meta name="keywords" content="金地国际城二手房, 金地国际城房价, 金地国际城户型, 金地国际城租房, 金地国际城小区">
+    <title>金地国际城二手房-房源详情、房价走势与交易指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #e67e22;
+            --bg-color: #f4f6f9;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --border-radius: 8px;
+            --shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-main);
+            position: relative;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent-color);
+        }
+
+        .header-actions .btn {
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+
+        .btn-outline {
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            margin-right: 10px;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #d35400;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2c3e50 0%, #4ca1af 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Search Bar */
+        .search-box {
+            background: white;
+            padding: 15px;
+            border-radius: var(--border-radius);
+            display: inline-flex;
+            width: 100%;
+            max-width: 700px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+
+        .search-box input {
+            flex: 1;
+            border: none;
+            padding: 0 15px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .search-box button {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 0 30px;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            background-color: var(--card-bg);
+            margin-top: -30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 20px;
+            display: flex;
+            justify-content: space-around;
+            position: relative;
+            z-index: 10;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 24px;
+            color: var(--accent-color);
+        }
+
+        .stat-item p {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        /* Main Layout */
+        .main-layout {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        /* Sidebar */
+        aside {
+            position: sticky;
+            top: 90px;
+            height: fit-content;
+        }
+
+        .filter-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .filter-card h3 {
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .filter-group {
+            margin-bottom: 20px;
+        }
+
+        .filter-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        .filter-group select, .filter-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .price-range {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .price-range input {
+            flex: 1;
+        }
+
+        /* Content Area */
+        .content-area h2 {
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .section-tags span {
+            display: inline-block;
+            padding: 4px 12px;
+            background: #eee;
+            border-radius: 20px;
+            font-size: 12px;
+            margin-right: 5px;
+            cursor: pointer;
+        }
+
+        .section-tags span.active {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        /* Property Grid */
+        .property-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .property-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.2s;
+            cursor: pointer;
+        }
+
+        .property-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-img {
+            height: 200px;
+            background-color: #ddd;
+            position: relative;
+        }
+
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(0,0,0,0.6);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+
+        .card-body {
+            padding: 15px;
+        }
+
+        .card-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .card-meta {
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-bottom: 10px;
+        }
+
+        .card-price {
+            font-size: 20px;
+            color: var(--accent-color);
+            font-weight: 700;
+        }
+
+        .card-price small {
+            font-size: 12px;
+            color: var(--text-secondary);
+            font-weight: 400;
+        }
+
+        /* Info Section */
+        .info-section {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            margin-top: 40px;
+            box-shadow: var(--shadow);
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .info-item h4 {
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .info-item p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 5px;
+        }
+
+        /* FAQ */
+        .faq-item {
+            border-bottom: 1px solid #eee;
+            padding: 20px 0;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .faq-answer {
+            margin-top: 10px;
+            color: var(--text-secondary);
+            font-size: 14px;
+            display: none;
+        }
+
+        .faq-item.open .faq-answer {
+            display: block;
+        }
+
+        .faq-item.open .faq-question::after {
+            content: '-';
+        }
+
+        .faq-item.open .faq-question::before {
+            content: '+';
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 50px 0 20px;
+            margin-top: 60px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #bdc3c7;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 14px;
+            color: #95a5a6;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 0;
+            }
+            nav ul {
+                gap: 15px;
+                margin: 15px 0;
+                font-size: 14px;
+            }
+            .main-layout {
+                grid-template-columns: 1fr;
+            }
+            aside {
+                position: static;
+            }
+            .stats-bar {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <span>🏠</span> 金地国际城二手房
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">小区档案</a></li>
+                    <li><a href="#">房价走势</a></li>
+                    <li><a href="#">交易指南</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="#" class="btn btn-outline">登录</a>
+                <a href="#" class="btn btn-primary">发布房源</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>金地国际城二手房</h1>
+            <p>专注金地国际城房产交易，提供最新房源、小区评测及买卖政策解读。</p>
+            <div class="search-box">
+                <input type="text" placeholder="输入小区名或地址，例如：金地国际城一期...">
+                <button>搜索</button>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="stats-bar">
+            <div class="stat-item">
+                <h3>1,240</h3>
+                <p>本月在售房源</p>
+            </div>
+            <div class="stat-item">
+                <h3>¥28,500</h3>
+                <p>本月均价(元/㎡)</p>
+            </div>
+            <div class="stat-item">
+                <h3>3,500+</h3>
+                <p>累计成交记录</p>
+            </div>
+            <div class="stat-item">
+                <h3>98%</h3>
+                <p>业主好评率</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container main-layout">
+        <!-- Sidebar -->
+        <aside>
+            <div class="filter-card">
+                <h3>筛选条件</h3>
+                <div class="filter-group">
+                    <label>户型</label>
+                    <select>
+                        <option>全部</option>
+                        <option>一室一厅</option>
+                        <option>两室一厅</option>
+                        <option>三室一厅</option>
+                        <option>四室及以上</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>总价</label>
+                    <div class="price-range">
+                        <input type="number" placeholder="最低价">
+                        <span>-</span>
+                        <input type="number" placeholder="最高价">
+                    </div>
+                </div>
+                <div class="filter-group">
+                    <label>朝向</label>
+                    <select>
+                        <option>不限</option>
+                        <option>南</option>
+                        <option>东南</option>
+                        <option>东</option>
+                        <option>北</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>装修</label>
+                    <select>
+                        <option>不限</option>
+                        <option>毛坯</option>
+                        <option>简装</option>
+                        <option>精装</option>
+                    </select>
+                </div>
+                <button class="btn btn-primary" style="width: 100%;">应用筛选</button>
+            </div>
+        </aside>
+
+        <!-- Content -->
+        <main class="content-area">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                <h2>最新房源推荐</h2>
+                <div class="section-tags">
+                    <span class="active">最新上架</span>
+                    <span>急售</span>
+                    <span>满五唯一</span>
+                    <span>好楼层</span>
+                </div>
+            </div>
+
+            <div class="property-grid">
+                <!-- Property Card 1 -->
+                <article class="property-card">
+                    <div class="card-img">
+                        <span class="badge">精装</span>
+                        <img src="https://picsum.photos/seed/house1/400/300" alt="金地国际城房源">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">金地国际城 三室两厅 南北通透 大阳台</h3>
+                        <div class="card-meta">89㎡ | 中楼层 | 2018年建 | 南/北</div>
+                        <div class="card-price">¥255万 <small>¥28,652元/㎡</small></div>
+                    </div>
+                </article>
+
+                <!-- Property Card 2 -->
+                <article class="property-card">
+                    <div class="card-img">
+                        <span class="badge">急售</span>
+                        <img src="https://picsum.photos/seed/house2/400/300" alt="金地国际城房源">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">金地国际城 两室一厅 视野开阔 近地铁</h3>
+                        <div class="card-meta">72㎡ | 低楼层 | 2016年建 | 南</div>
+                        <div class="card-price">¥168万 <small>¥23,333元/㎡</small></div>
+                    </div>
+                </article>
+
+                <!-- Property Card 3 -->
+                <article class="property-card">
+                    <div class="card-img">
+                        <img src="https://picsum.photos/seed/house3/400/300" alt="金地国际城房源">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">金地国际城 四室两厅 复式结构 豪华装修</h3>
+                        <div class="card-meta">145㎡ | 高楼层 | 2020年建 | 全南</div>
+                        <div class="card-price">¥410万 <small>¥28,275元/㎡</small></div>
+                    </div>
+                </article>
+
+                <!-- Property Card 4 -->
+                <article class="property-card">
+                    <div class="card-img">
+                        <span class="badge">满五唯一</span>
+                        <img src="https://picsum.photos/seed/house4/400/300" alt="金地国际城房源">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">金地国际城 两室一厅 采光极佳 家具家电全送</h3>
+                        <div class="card-meta">75㎡ | 中楼层 | 2015年建 | 南/东</div>
+                        <div class="card-price">¥185万 <small>¥24,666元/㎡</small></div>
+                    </div>
+                </article>
+
+                <!-- Property Card 5 -->
+                <article class="property-card">
+                    <div class="card-img">
+                        <img src="https://picsum.photos/seed/house5/400/300" alt="金地国际城房源">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">金地国际城 一室一厅 精致小户型 适合单身</h3>
+                        <div class="card-meta">45㎡ | 高楼层 | 2019年建 | 南</div>
+                        <div class="card-price">¥95万 <small>¥21,111元/㎡</small></div>
+                    </div>
+                </article>
+
+                <!-- Property Card 6 -->
+                <article class="property-card">
+                    <div class="card-img">
+                        <span class="badge">捡漏</span>
+                        <img src="https://picsum.photos/seed/house6/400/300" alt="金地国际城房源">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">金地国际城 三室两厅 稀缺户型 距离学校近</h3>
+                        <div class="card-meta">98㎡ | 低楼层 | 2017年建 | 南/西</div>
+                        <div class="card-price">¥290万 <small>¥29,591元/㎡</small></div>
+                    </div>
+                </article>
+            </div>
+
+            <div style="text-align: center; margin-top: 40px;">
+                <button class="btn btn-outline" style="padding: 10px 40px;">加载更多房源</button>
+            </div>
+
+            <!-- Community Info -->
+            <section class="info-section">
+                <h2>小区档案：金地国际城</h2>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <h4>基本信息</h4>
+                        <p>物业类型：普通住宅</p>
+                        <p>竣工年份：2015年-2020年</p>
+                        <p>开发商：金地集团</p>
+                    </div>
+                    <div class="info-item">
+                        <h4>周边配套</h4>
+                        <p>学校：金地国际城幼儿园、xx小学</p>
+                        <p>医疗：xx社区卫生服务中心</p>
+                        <p>商业：xx购物中心、菜市场</p>
+                    </div>
+                    <div class="info-item">
+                        <h4>交通状况</h4>
+                        <p>地铁：xx号线 xx站</p>
+                        <p>公交：xx路、xx路</p>
+                        <p>距离：距市中心 xx 公里</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FAQ -->
+            <section class="info-section">
+                <h2>常见问题 (FAQ)</h2>
+                <div class="faq-item">
+                    <div class="faq-question">金地国际城目前的二手房均价是多少？</div>
+                    <div class="faq-answer">根据最新市场数据，金地国际城本月二手房均价约为28,500元/平方米。具体价格会根据楼层、朝向、装修情况及房龄有所浮动。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">这里的学区房政策是怎样的？</div>
+                    <div class="faq-answer">学区政策随年份变动，通常金地国际城对应的是xx小学及xx中学。建议您在购房前咨询当地教育局或查看最新的入学通知，确认对口学校是否有变化。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">购买二手房需要缴纳哪些税费？</div>
+                    <div class="faq-answer">主要税费包括契税、个税（满五唯一免征）和增值税（满二免征）。此外可能涉及中介费。具体费用需根据房屋产权年限和业主身份计算。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">小区的物业管理水平如何？</div>
+                    <div class="faq-answer">金地国际城由金地物业负责管理，整体口碑较好，安保措施完善，绿化维护到位，停车管理规范。</div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>关于我们</h4>
+                    <ul>
+                        <li><a href="#">平台简介</a></li>
+                        <li><a href="#">合作加盟</a></li>
+                        <li><a href="#">联系我们</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>购房指南</h4>
+                    <ul>
+                        <li><a href="#">二手房交易流程</a></li>
+                        <li><a href="#">贷款计算器</a></li>
+                        <li><a href="#">学区查询</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>服务支持</h4>
+                    <ul>
+                        <li><a href="#">房源发布规则</a></li>
+                        <li><a href="#">用户隐私协议</a></li>
+                        <li><a href="#">版权声明</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关注我们</h4>
+                    <ul>
+                        <li><a href="#">微信公众号</a></li>
+                        <li><a href="#">新浪微博</a></li>
+                        <li><a href="#">客服热线：400-XXX-XXXX</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 金地国际城二手房信息服务平台 版权所有
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 简单的交互逻辑：FAQ展开/收起
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', event => {
+                const parent = item.parentElement;
+                parent.classList.toggle('open');
+            });
+        });
+
+        // 标签切换效果
+        document.querySelectorAll('.section-tags span').forEach(tag => {
+            tag.addEventListener('click', () => {
+                document.querySelectorAll('.section-tags span').forEach(t => t.classList.remove('active'));
+                tag.classList.add('active');
+            });
+        });
+    </script>
+</body>
+  </html>
