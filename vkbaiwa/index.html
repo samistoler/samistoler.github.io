@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="VK白袜裸足TK影片资源站，提供高清白袜、裸足及捆绑视频内容在线浏览与下载指南。">
+    <meta name="keywords" content="vk白袜裸足tk影片,白袜视频,裸足捆绑,TK视频,恋足">
+    <title>vk白袜裸足tk影片-高清视频资源与在线观看指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #ff4757;
+            --secondary-color: #2f3542;
+            --bg-color: #f1f2f6;
+            --card-bg: #ffffff;
+            --text-color: #2f3542;
+            --text-light: #747d8c;
+            --spacing: 20px;
+            --radius: 8px;
+            --shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 60px;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            font-size: 0.95rem;
+            color: var(--text-color);
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .search-bar {
+            display: flex;
+            background: #f1f2f6;
+            border-radius: 20px;
+            padding: 5px 15px;
+        }
+
+        .search-bar input {
+            border: none;
+            background: transparent;
+            outline: none;
+            font-size: 0.9rem;
+            width: 150px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #ff6b81 0%, #ff4757 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .hero h1 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Main Content Grid */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        /* Video Section */
+        .section-title {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--primary-color);
+            padding-left: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .video-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.2s;
+        }
+
+        .video-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .thumbnail {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+            background-color: #ddd;
+        }
+
+        .thumbnail img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .play-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 40px;
+            height: 40px;
+            background: rgba(0,0,0,0.6);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .card-content {
+            padding: 15px;
+        }
+
+        .card-title {
+            font-size: 1rem;
+            font-weight: bold;
+            margin-bottom: 8px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        .tag {
+            background-color: #ffeaa7;
+            color: #d35400;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .sidebar-widget {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+
+        .sidebar-title {
+            font-size: 1rem;
+            margin-bottom: 15px;
+            font-weight: bold;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .category-list li {
+            margin-bottom: 10px;
+        }
+
+        .category-list a {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            color: var(--text-color);
+        }
+
+        .category-list a:hover {
+            color: var(--primary-color);
+        }
+
+        .hot-list li {
+            margin-bottom: 12px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .hot-num {
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .hot-title {
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        /* Info Section */
+        .info-section {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+        }
+
+        .info-section h2 {
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+
+        .info-content p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .info-content ul {
+            margin-bottom: 15px;
+            padding-left: 20px;
+        }
+
+        .info-content li {
+            margin-bottom: 8px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary-color);
+            color: #ccc;
+            padding: 40px 0;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .copyright {
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-links {
+                display: none; /* Simplified for mobile */
+            }
+
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <div class="logo">
+                <span>⚡</span> VK白袜裸足TK影片
+            </div>
+            <nav class="nav-links">
+                <a href="#">首页</a>
+                <a href="#">最新更新</a>
+                <a href="#">高清专区</a>
+                <a href="#">分类浏览</a>
+                <a href="#">社区讨论</a>
+            </nav>
+            <div class="search-bar">
+                <input type="text" placeholder="搜索视频...">
+                <span style="cursor: pointer;">🔍</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="hero">
+        <div class="container">
+            <h1>探索VK白袜裸足TK影片</h1>
+            <p>提供最新、最全的VK风格白袜、裸足及捆绑主题视频资源，满足您的视觉与收藏需求。</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="main-grid">
+            <!-- Left Column: Video Content -->
+            <main>
+                <section class="section-title">
+                    <span>热门推荐</span>
+                    <a href="#" style="font-size: 0.9rem; color: var(--primary-color);">查看更多 &raquo;</a>
+                </section>
+
+                <div class="video-grid">
+                    <!-- Video Card 1 -->
+                    <article class="video-card">
+                        <a href="#" class="thumbnail">
+                            <img src="https://picsum.photos/seed/vk1/400/225" alt="白袜特写视频封面">
+                            <div class="play-icon">▶</div>
+                        </a>
+                        <div class="card-content">
+                            <h3 class="card-title"><a href="#">VK经典白袜特写：细腻足部视角解析</a></h3>
+                            <div class="card-meta">
+                                <span>2023-10-24</span>
+                                <span class="tag">高清</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Video Card 2 -->
+                    <article class="video-card">
+                        <a href="#" class="thumbnail">
+                            <img src="https://picsum.photos/seed/vk2/400/225" alt="裸足捆绑视频封面">
+                            <div class="play-icon">▶</div>
+                        </a>
+                        <div class="card-content">
+                            <h3 class="card-title"><a href="#">高清裸足TK捆绑视频：纯欲风格展示</a></h3>
+                            <div class="card-meta">
+                                <span>2023-10-22</span>
+                                <span class="tag">4K</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Video Card 3 -->
+                    <article class="video-card">
+                        <a href="#" class="thumbnail">
+                            <img src="https://picsum.photos/seed/vk3/400/225" alt="白袜互动视频封面">
+                            <div class="play-icon">▶</div>
+                        </a>
+                        <div class="card-content">
+                            <h3 class="card-title"><a href="#">互动式白袜体验：沉浸式足部护理</a></h3>
+                            <div class="card-meta">
+                                <span>2023-10-20</span>
+                                <span class="tag">VR</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Video Card 4 -->
+                    <article class="video-card">
+                        <a href="#" class="thumbnail">
+                            <img src="https://picsum.photos/seed/vk4/400/225" alt="足控主题视频封面">
+                            <div class="play-icon">▶</div>
+                        </a>
+                        <div class="card-content">
+                            <h3 class="card-title"><a href="#">足控必看：白袜与裸足的视觉盛宴</a></h3>
+                            <div class="card-meta">
+                                <span>2023-10-18</span>
+                                <span class="tag">合集</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Video Card 5 -->
+                    <article class="video-card">
+                        <a href="#" class="thumbnail">
+                            <img src="https://picsum.photos/seed/vk5/400/225" alt="TK风格视频封面">
+                            <div class="play-icon">▶</div>
+                        </a>
+                        <div class="card-content">
+                            <h3 class="card-title"><a href="#">TK风格教学：如何拍摄高质量足部视频</a></h3>
+                            <div class="card-meta">
+                                <span>2023-10-15</span>
+                                <span class="tag">教程</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Video Card 6 -->
+                    <article class="video-card">
+                        <a href="#" class="thumbnail">
+                            <img src="https://picsum.photos/seed/vk6/400/225" alt="白袜穿搭视频封面">
+                            <div class="play-icon">▶</div>
+                        </a>
+                        <div class="card-content">
+                            <h3 class="card-title"><a href="#">时尚白袜穿搭：日常与主题视频指南</a></h3>
+                            <div class="card-meta">
+                                <span>2023-10-12</span>
+                                <span class="tag">穿搭</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <section class="section-title" style="margin-top: 40px;">
+                    <span>最新上传</span>
+                </section>
+                
+                <div class="video-grid">
+                    <!-- More cards would go here -->
+                    <article class="video-card">
+                        <a href="#" class="thumbnail">
+                            <img src="https://picsum.photos/seed/vk7/400/225" alt="裸足特写">
+                            <div class="play-icon">▶</div>
+                        </a>
+                        <div class="card-content">
+                            <h3 class="card-title"><a href="#">最新上传：夏日白袜特辑</a></h3>
+                            <div class="card-meta">
+                                <span>2023-10-24</span>
+                                <span class="tag">新片</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </main>
+
+            <!-- Right Column: Sidebar -->
+            <aside class="sidebar">
+                <div class="sidebar-widget">
+                    <h3 class="sidebar-title">分类目录</h3>
+                    <ul class="category-list">
+                        <li><a href="#">全部视频 <span>(120)</span></a></li>
+                        <li><a href="#">白袜特写 <span>(45)</span></a></li>
+                        <li><a href="#">裸足捆绑 <span>(32)</span></a></li>
+                        <li><a href="#">TK风格 <span>(28)</span></a></li>
+                        <li><a href="#">足部护理 <span>(15)</span></a></li>
+                        <li><a href="#">运动白袜 <span>(12)</span></a></li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-widget">
+                    <h3 class="sidebar-title">本周热门</h3>
+                    <ul class="hot-list">
+                        <li>
+                            <span class="hot-num">1</span>
+                            <span class="hot-title"><a href="#">清纯白袜JK系列</a></span>
+                        </li>
+                        <li>
+                            <span class="hot-num">2</span>
+                            <span class="hot-title"><a href="#">裸足踩踏教学</a></span>
+                        </li>
+                        <li>
+                            <span class="hot-num">3</span>
+                            <span class="hot-title"><a href="#">日系白袜穿搭</a></span>
+                        </li>
+                        <li>
+                            <span class="hot-num">4</span>
+                            <span class="hot-title"><a href="#">高清捆绑特辑</a></span>
+                        </li>
+                        <li>
+                            <span class="hot-num">5</span>
+                            <span class="hot-title"><a href="#">足部按摩体验</a></span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-widget">
+                    <h3 class="sidebar-title">热门标签</h3>
+                    <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                        <a href="#" style="background: #eee; padding: 4px 8px; border-radius: 4px; font-size: 0.8rem;">白袜</a>
+                        <a href="#" style="background: #eee; padding: 4px 8px; border-radius: 4px; font-size: 0.8rem;">裸足</a>
+                        <a href="#" style="background: #eee; padding: 4px 8px; border-radius: 4px; font-size: 0.8rem;">TK</a>
+                        <a href="#" style="background: #eee; padding: 4px 8px; border-radius: 4px; font-size: 0.8rem;">捆绑</a>
+                        <a href="#" style="background: #eee; padding: 4px 8px; border-radius: 4px; font-size: 0.8rem;">足控</a>
+                        <a href="#" style="background: #eee; padding: 4px 8px; border-radius: 4px; font-size: 0.8rem;">高清</a>
+                    </div>
+                </div>
+            </aside>
+        </div>
+
+        <!-- Informational Section -->
+        <section class="info-section">
+            <h2>关于VK白袜裸足TK影片</h2>
+            <div class="info-content">
+                <p>本站致力于为用户提供高质量的“VK白袜裸足TK影片”相关内容资源。我们关注白袜文化、裸足美学以及TK（Tie and Kneel）风格视频的视觉呈现。</p>
+                <p>在浏览过程中，请注意区分内容类型，选择符合个人喜好的视频进行观看。所有视频内容均经过筛选，确保画质清晰、分类明确，方便用户快速找到感兴趣的主题。</p>
+                <h3>常见分类说明：</h3>
+                <ul>
+                    <li><strong>白袜视频：</strong> 侧重于白色运动袜或连裤袜的展示，强调材质纹理与搭配。</li>
+                    <li><strong>裸足主题：</strong> 展示赤脚或脱袜状态下的足部细节，追求自然与纯粹。</li>
+                    <li><strong>TK影片：</strong> 涉及特定姿势与束缚元素的视觉内容，注重氛围营造。</li>
+                </ul>
+                <p>我们建议用户在合适的网络环境下使用本站，并尊重版权与个人隐私。如有任何关于视频播放或内容分类的疑问，欢迎通过页面提供的联系方式进行咨询。</p>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="#">关于我们</a>
+                <a href="#">免责声明</a>
+                <a href="#">隐私政策</a>
+                <a href="#">联系客服</a>
+            </div>
+            <p class="copyright">&copy; 2023 VK白袜裸足TK影片资源站 版权所有</p>
+        </div>
+    </footer>
+
+</body>
+</html>
