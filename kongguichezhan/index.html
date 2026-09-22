@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="恐轨车站入口 - 探索未知铁路与车站的神秘入口，收录全球诡谲、废弃与异能车站的探索记录、地理坐标与未解之谜。">
+    <meta name="keywords" content="恐轨车站入口, 铁路探险, 废弃车站, 地下入口, 灵异车站, 轨道尽头">
+    <title>恐轨车站入口 - 全球诡谲铁路与神秘车站探索指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --bg-color: #0a0b10;
+            --card-bg: #14161f;
+            --text-primary: #e0e6ed;
+            --text-secondary: #94a3b8;
+            --accent-color: #d4af37;
+            --accent-hover: #b5952f;
+            --danger-color: #ef4444;
+            --border-color: #2d3748;
+            --spacing-unit: 1rem;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout Utilities */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .section {
+            padding: 4rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--accent-color);
+            margin: 0.5rem auto 0;
+        }
+
+        .section-subtitle {
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(10, 11, 16, 0.95);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent-color);
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo svg {
+            fill: currentColor;
+            width: 24px;
+            height: 24px;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent-color);
+        }
+
+        .cta-button {
+            background-color: var(--accent-color);
+            color: #000;
+            padding: 0.5rem 1.2rem;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            transition: background-color 0.2s;
+        }
+
+        .cta-button:hover {
+            background-color: var(--accent-hover);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 80vh;
+            min-height: 500px;
+            background: linear-gradient(rgba(10, 11, 16, 0.7), rgba(10, 11, 16, 0.9)), url('https://picsum.photos/seed/railwaydark/1920/1080') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.1) 2px, rgba(0,0,0,0.1) 4px);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            z-index: 2;
+            max-width: 800px;
+            padding: 2rem;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(5px);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .status-badge {
+            display: inline-block;
+            background: rgba(239, 68, 68, 0.2);
+            color: var(--danger-color);
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+
+        /* Grid Layouts */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+        }
+
+        /* Cards */
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border-color: var(--accent-color);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            filter: grayscale(40%) contrast(1.2);
+            transition: filter 0.3s;
+        }
+
+        .card:hover .card-image {
+            filter: grayscale(0%) contrast(1);
+        }
+
+        .card-content {
+            padding: 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-meta {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .card-tag {
+            color: var(--accent-color);
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+        }
+
+        .card-desc {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            flex: 1;
+        }
+
+        .card-footer {
+            margin-top: auto;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .card-link {
+            color: var(--accent-color);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Featured Section */
+        .featured-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .featured-item {
+            display: flex;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: border-color 0.3s;
+        }
+
+        .featured-item:hover {
+            border-color: var(--accent-color);
+        }
+
+        .featured-img {
+            width: 200px;
+            height: 100%;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .featured-info {
+            padding: 1.5rem;
+            flex: 1;
+        }
+
+        .featured-info h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Stats Section */
+        .stats {
+            background-color: var(--card-bg);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            text-align: center;
+        }
+
+        .stat-item h4 {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Guide Section */
+        .guide-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .step {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .step::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: var(--border-color);
+        }
+
+        .step-number {
+            position: absolute;
+            left: -6px;
+            top: 0;
+            width: 14px;
+            height: 14px;
+            background-color: var(--bg-color);
+            border: 2px solid var(--accent-color);
+            border-radius: 50%;
+        }
+
+        .step h3 {
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .step p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* FAQ */
+        .faq-item {
+            border-bottom: 1px solid var(--border-color);
+            padding: 1.5rem 0;
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .faq-answer {
+            margin-top: 1rem;
+            color: var(--text-secondary);
+            display: none;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question svg {
+            transform: rotate(180deg);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #050508;
+            padding: 4rem 0 2rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand p {
+            color: var(--text-secondary);
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            max-width: 300px;
+        }
+
+        .footer-col h4 {
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-col a {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .footer-col a:hover {
+            color: var(--accent-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #1a1a1a;
+            color: #666;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .nav-container {
+                flex-direction: column;
+                height: auto;
+                padding: 1rem 0;
+            }
+
+            nav ul {
+                margin: 1rem 0;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .featured-item {
+                flex-direction: column;
+            }
+
+            .featured-img {
+                width: 100%;
+                height: 180px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                </svg>
+                恐轨车站入口
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#explore" class="active">探索记录</a></li>
+                    <li><a href="#guide">探索指南</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                    <li><a href="#join">加入社区</a></li>
+                </ul>
+            </nav>
+            <a href="#explore" class="cta-button">开始探索</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <span class="status-badge">系统状态：活跃</span>
+                <h1>恐轨车站入口</h1>
+                <p>这里是通往未知铁路的数字集散地。我们记录那些被遗忘的站台、永不停歇的列车以及出现在轨道尽头的神秘入口。准备好踏上旅程了吗？</p>
+                <div style="display: flex; gap: 1rem; justify-content: center;">
+                    <a href="#explore" class="cta-button" style="background: transparent; border: 1px solid var(--accent-color); color: var(--accent-color);">浏览地图</a>
+                    <a href="#guide" class="cta-button">阅读手册</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="section stats">
+            <div class="container stats-grid">
+                <div class="stat-item">
+                    <h4>42</h4>
+                    <p>已知入口坐标</p>
+                </div>
+                <div class="stat-item">
+                    <h4>128</h4>
+                    <p>废弃车站档案</p>
+                </div>
+                <div class="stat-item">
+                    <h4>89%</h4>
+                    <p>探索成功率</p>
+                </div>
+                <div class="stat-item">
+                    <h4>24h</h4>
+                    <p>实时信号监控</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Locations -->
+        <section id="explore" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">热门探索区域</h2>
+                    <p class="section-subtitle">精选近期报告频率最高的恐轨车站入口与异常点</p>
+                </div>
+                
+                <div class="featured-list">
+                    <article class="featured-item">
+                        <img src="https://picsum.photos/seed/station1/400/300" alt="废弃站台入口" class="featured-img">
+                        <div class="featured-info">
+                            <span class="card-tag">高危区域</span>
+                            <h3>第 7 区段 - 旧城废弃站</h3>
+                            <p class="card-desc">位于城市边缘的废弃地铁站入口，据报告该区域在午夜12点后会出现不存在的第13节车厢。入口处的自动闸机偶尔会发出求救信号。</p>
+                            <div class="card-footer">
+                                <span style="font-size: 0.85rem; color: #666;">更新于: 2小时前</span>
+                                <a href="#" class="card-link">查看详情 &rarr;</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="featured-item">
+                        <img src="https://picsum.photos/seed/station2/400/300" alt="地下隧道入口" class="featured-img">
+                        <div class="featured-info">
+                            <span class="card-tag">未知领域</span>
+                            <h3>地下河隧道口</h3>
+                            <p class="card-desc">一处位于地下河深处的隐蔽入口，水流声异常湍急。探险者反馈在此处能听到某种类似钟表的滴答声，且周围的温度会骤降。</p>
+                            <div class="card-footer">
+                                <span style="font-size: 0.85rem; color: #666;">更新于: 5小时前</span>
+                                <a href="#" class="card-link">查看详情 &rarr;</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="featured-item">
+                        <img src="https://picsum.photos/seed/station3/400/300" alt="荒野铁轨" class="featured-img">
+                        <div class="featured-info">
+                            <span class="card-tag">自然融合</span>
+                            <h3>荒野尽头 - 无名铁轨</h3>
+                            <p class="card-desc">延伸至原始森林深处的铁轨，周围植被呈现出诡异的暗红色。铁轨似乎在缓慢移动，每走一步都会改变方向。</p>
+                            <div class="card-footer">
+                                <span style="font-size: 0.85rem; color: #666;">更新于: 1天前</span>
+                                <a href="#" class="card-link">查看详情 &rarr;</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Categories Grid -->
+        <section class="section" style="background-color: #0d0e15;">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">分类档案</h2>
+                    <p class="section-subtitle">按类型筛选已记录的恐轨车站入口</p>
+                </div>
+                <div class="grid-3">
+                    <div class="card">
+                        <img src="https://picsum.photos/seed/rail1/400/250" alt="城市废墟" class="card-image">
+                        <div class="card-content">
+                            <div class="card-meta">
+                                <span>城市探险</span>
+                                <span>12 个入口</span>
+                            </div>
+                            <h3 class="card-title">都市潜入点</h3>
+                            <p class="card-desc">隐藏在摩天大楼阴影下的地铁站入口，通常伴随着地铁停运和诡异的人流。</p>
+                            <a href="#" class="card-link">探索列表</a>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="https://picsum.photos/seed/rail2/400/250" alt="森林" class="card-image">
+                        <div class="card-content">
+                            <div class="card-meta">
+                                <span>野外生存</span>
+                                <span>8 个入口</span>
+                            </div>
+                            <h3 class="card-title">迷雾森林线</h3>
+                            <p class="card-desc">深山中难以辨认的旧式铁轨，常被浓雾覆盖，入口处往往只有一条生路。</p>
+                            <a href="#" class="card-link">探索列表</a>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="https://picsum.photos/seed/rail3/400/250" alt="水下" class="card-image">
+                        <div class="card-content">
+                            <div class="card-meta">
+                                <span>水下探险</span>
+                                <span>5 个入口</span>
+                            </div>
+                            <h3 class="card-title">沉没航道</h3>
+                            <p class="card-desc">位于水底废弃港口的隐蔽闸门，据说连接着另一个平行的水下世界。</p>
+                            <a href="#" class="card-link">探索列表</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Exploration Guide -->
+        <section id="guide" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">探索者手册</h2>
+                    <p class="section-subtitle">安全抵达与记录恐轨车站入口的必要步骤</p>
+                </div>
+                <div class="grid-2">
+                    <div class="guide-steps">
+                        <div class="step">
+                            <span class="step-number"></span>
+                            <h3>1. 资源准备</h3>
+                            <p>携带高亮度的手电筒、指南针以及能记录声音的设备。确认你的体能足以应对突发状况。</p>
+                        </div>
+                        <div class="step">
+                            <span class="step-number"></span>
+                            <h3>2. 环境确认</h3>
+                            <p>不要独自行动。进入入口前，使用地图软件标记你的位置，并告知联络人你的预计返回时间。</p>
+                        </div>
+                        <div class="step">
+                            <span class="step-number"></span>
+                            <h3>3. 记录异常</h3>
+                            <p>保持冷静，观察周围环境的细节变化。注意铁轨的延伸方向、站台灯光的频率以及任何非人类的声音。</p>
+                        </div>
+                    </div>
+                    <div style="background: var(--card-bg); padding: 2rem; border-radius: 8px; border: 1px solid var(--border-color);">
+                        <h3 style="margin-bottom: 1rem; color: var(--accent-color);">⚠️ 禁忌事项</h3>
+                        <ul style="color: var(--text-secondary); line-height: 2;">
+                            <li>禁止在铁轨上行走或触摸未知的信号灯。</li>
+                            <li>不要回应任何从隧道深处传来的呼唤声。</li>
+                            <li>切勿跟随看起来不属于任何已知列车的列车行驶。</li>
+                            <li>发现异常信号时，立即停止记录并撤离。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="section" style="background-color: #0d0e15;">
+            <div class="container" style="max-width: 800px;">
+                <div class="section-header">
+                    <h2 class="section-title">常见问题 (FAQ)</h2>
+                </div>
+                <div class="faq-list">
+                    <div class="faq-item active">
+                        <div class="faq-question">
+                            恐轨车站入口真的存在吗？
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M6 9l6 6 6-6"/>
+                            </svg>
+                        </div>
+                        <div class="faq-answer">
+                            <p>“恐轨车站入口”是探险者社群中对那些异常、超自然或极度失落的铁路入口的统称。虽然它们无法被科学仪器完全证实，但在全球各地的探险日志中，都有关于类似地点的详细描述。它们可能是被遗忘的历史、时空裂缝，或者是某种特殊的物理现象。</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            我可以在非工作时间探索这些入口吗？
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M6 9l6 6 6-6"/>
+                            </svg>
+                        </div>
+                        <div class="faq-answer">
+                            <p>我们强烈建议在白天或光线充足的时间进行探索。许多入口在黑暗中会展现出不同的物理特性，且容易迷路。安全永远是第一位的，切勿在恶劣天气或人员稀少的情况下进入未知区域。</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            如何提交我发现的入口坐标？
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M6 9l6 6 6-6"/>
+                            </svg>
+                        </div>
+                        <div class="faq-answer">
+                            <p>您可以通过“加入社区”板块提交您的发现。请确保您的描述尽可能详细，包括照片、录音以及当时的具体环境。经过审核后，您的数据将被添加到我们的公开地图数据库中。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                        </svg>
+                        恐轨车站入口
+                    </a>
+                    <p>致力于记录、研究和分享全球范围内那些神秘莫测的铁路入口与未解之谜。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>探索</h4>
+                    <ul>
+                        <li><a href="#">最新报告</a></li>
+                        <li><a href="#">地图档案</a></li>
+                        <li><a href="#">失踪人员</a></li>
+                        <li><a href="#">历史遗迹</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>社区</h4>
+                    <ul>
+                        <li><a href="#">加入我们</a></li>
+                        <li><a href="#">提交线索</a></li>
+                        <li><a href="#">论坛讨论</a></li>
+                        <li><a href="#">志愿者招募</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关于</h4>
+                    <ul>
+                        <li><a href="#">隐私政策</a></li>
+                        <li><a href="#">免责声明</a></li>
+                        <li><a href="#">联系管理</a></li>
+                        <li><a href="#">使用条款</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 恐轨车站入口. All rights reserved. 仅供探险爱好者交流与学术研究参考。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Accordion Logic
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // Close other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+          </html>
